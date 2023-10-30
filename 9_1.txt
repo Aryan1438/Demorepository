@@ -1,0 +1,100 @@
+Certainly! Below is a C program that checks if the entered number is a factorial or not using different types of user-defined functions based on your requirements:
+
+c
+#include <stdio.h>
+
+// Function prototype (i) No arguments passed and no return value
+void checkFactorial();
+
+// Function prototype (ii) No arguments passed but a return value
+int getNumber();
+
+// Function prototype (iii) Argument passed but no return value
+void checkFactorialWithArgument(int num);
+
+// Function prototype (iv) Argument passed and a return value
+int isFactorial(int num);
+
+int main() {
+    // Function call for (i)
+    checkFactorial();
+    
+    // Function call for (ii)
+    int number = getNumber();
+    printf("You entered: %d\n", number);
+    
+    // Function call for (iii)
+    checkFactorialWithArgument(number);
+    
+    // Function call for (iv)
+    if (isFactorial(number)) {
+        printf("%d is a factorial number.\n", number);
+    } else {
+        printf("%d is not a factorial number.\n", number);
+    }
+    
+    return 0;
+}
+
+// Function definition (i) No arguments passed and no return value
+void checkFactorial() {
+    int num, i, fact = 1;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    for (i = 1; i <= num; i++) {
+        fact *= i;
+    }
+
+    if (fact == num) {
+        printf("%d is a factorial number.\n", num);
+    } else {
+        printf("%d is not a factorial number.\n", num);
+    }
+}
+
+// Function definition (ii) No arguments passed but a return value
+int getNumber() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    return num;
+}
+
+// Function definition (iii) Argument passed but no return value
+void checkFactorialWithArgument(int num) {
+    int i, fact = 1;
+
+    for (i = 1; i <= num; i++) {
+        fact *= i;
+    }
+
+    if (fact == num) {
+        printf("%d is a factorial number.\n", num);
+    } else {
+        printf("%d is not a factorial number.\n", num);
+    }
+}
+
+// Function definition (iv) Argument passed and a return value
+int isFactorial(int num) {
+    int i, fact = 1;
+
+    for (i = 1; i <= num; i++) {
+        fact *= i;
+        if (fact == num) {
+            return 1; // True, num is a factorial
+        } else if (fact > num) {
+            return 0; // False, num is not a factorial
+        }
+    }
+
+    return 0; // False, num is not a factorial
+}
+
+
+In this program:
+- Function checkFactorial() takes no arguments and has no return value.
+- Function getNumber() takes no arguments but returns the entered number.
+- Function checkFactorialWithArgument(int num) takes an argument but has no return value.
+- Function isFactorial(int num) takes an argument and returns 1 if the number is a factorial, and 0 otherwise.
